@@ -19,9 +19,7 @@ import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Sala;
 
-/**
- * Created by nando on 03/03/17.
- */
+
 @Controller
 public class SalaController {
 
@@ -69,8 +67,9 @@ public class SalaController {
 	public ModelAndView listaSessoes(@PathVariable("id") Integer id) {
 
 		Sala sala = salaDao.findOne(id);
-		view.addObject("sessoes", sessaoDao.buscaSessoesDaSala(sala));
 		ModelAndView view = new ModelAndView("sessao/lista");
+		
+		view.addObject("sessoes", sessaoDao.buscaSessoesDaSala(sala));
 		view.addObject("sala", sala);
 
 		return view;

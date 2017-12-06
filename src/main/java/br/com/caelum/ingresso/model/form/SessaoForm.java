@@ -15,15 +15,15 @@ import br.com.caelum.ingresso.model.Sessao;
 public class SessaoForm {
 
 	private Integer id;
-	
+
 	@NotNull
 	private Integer salaId;
-	
+
 	@DateTimeFormat(pattern = "HH:mm")
 	@NotNull
 	private LocalTime horario;
-	
-	@NotNull	
+
+	@NotNull
 	private Integer filmeId;
 
 	public Integer getId() {
@@ -49,11 +49,11 @@ public class SessaoForm {
 	public void setFilmeId(Integer filmeId) {
 		this.filmeId = filmeId;
 	}
-	
+
 	public void setSalaId(Integer salaId) {
 		this.salaId = salaId;
 	}
-	
+
 	public Integer getSalaId() {
 		return salaId;
 	}
@@ -61,8 +61,10 @@ public class SessaoForm {
 	public Sessao toSessao(SalaDao salaDao, FilmeDao filmeDao) {
 		Filme filme = filmeDao.findOne(filmeId);
 		Sala sala = salaDao.findOne(salaId);
+		
 		Sessao sessao = new Sessao(this.horario, filme, sala);
+		
 		return sessao;
 	}
-	
+
 }
