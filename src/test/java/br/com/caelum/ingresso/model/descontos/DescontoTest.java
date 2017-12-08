@@ -14,6 +14,7 @@ import br.com.caelum.ingresso.model.Sessao;
 
 public class DescontoTest {
 
+	/**
 	@Test
 	public void naoDeveConcederDescontoParaIngressoNormal() {
 		Sala sala = new Sala("Eldorado-IMAX", new BigDecimal("20.5"));
@@ -26,6 +27,6 @@ public class DescontoTest {
 		
 		BigDecimal precoEsperado = new BigDecimal("32.5");
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
-	}
+	}**/
 
 }
